@@ -2,7 +2,7 @@
 
 IPRANGE="194.132.209."
 
-for i in `seq -w 2 254`; do
+for i in `seq 2 254`; do
  ORPORT=$(( ( RANDOM % (65535-1024) ) + 1024 ))
 
 cat > tor/tor$i.cfg << EOF
@@ -30,7 +30,3 @@ ExtORPort auto
 EOF
 done 
 
-# TODO
-# dirty ...!
-
-sed -i -e "s:209\.0:209\.:g" tor/*.cfg
